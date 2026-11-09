@@ -1,0 +1,34 @@
+{
+  "name": "Sphere Dark",
+  "description": "Slate-blue dark palette taken from a studio-lit wallpaper. Reference values used by every theme in this repository.",
+  "surfaces": {
+    "chrome":  "#0f1017",
+    "base":    "#191b24",
+    "base_alt":"#1c1e29",
+    "surface": "#22242f",
+    "raised":  "#2f313e",
+    "line":    "#3b3f4e",
+    "recessed":"#12141b"
+  },
+  "text": {
+    "primary":   "#dfe5f5",
+    "bright":    "#eef1fa",
+    "secondary": "#99a0b5",
+    "muted":     "#8b92a8",
+    "disabled":  "#62687b"
+  },
+  "accents": {
+    "accent":       "#5a6a9a",
+    "accent_hover": "#7d8ab3",
+    "accent_dark":  "#3d4a6e",
+    "light":        "#a9b4d0",
+    "rim":          "#444a60",
+    "rust":         "#b4694f"
+  },
+  "ansi": {
+    "black":   "#2f313e", "red":     "#d59087", "green":   "#7eb488", "yellow":  "#bfa060",
+    "blue":    "#88a5da", "magenta": "#bb94c7", "cyan":    "#5db5ba", "white":   "#b8bfd3",
+    "bright_black":   "#6f768c", "bright_red":     "#f1b2a9", "bright_green":   "#a2d2ab", "bright_yellow":  "#ddc084",
+    "bright_blue":    "#aac5f6", "bright_magenta": "#d9b5e4", "bright_cyan":    "#88d3d7", "bright_white":   "#eef1fa"
+  }
+}
