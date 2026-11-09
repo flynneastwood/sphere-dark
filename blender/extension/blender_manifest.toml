@@ -1,0 +1,16 @@
+schema_version = "1.0.0"
+
+id = "sphere_dark"
+version = "1.0.0"
+name = "Sphere Dark"
+tagline = "Slate-blue dark theme matching the Sphere-Dark desktop theme"
+maintainer = "Antoine <aflynneastwood@gmail.com>"
+type = "theme"
+
+tags = ["Dark"]
+
+blender_version_min = "5.2.0"
+
+license = [
+  "SPDX:GPL-3.0-or-later",
+]

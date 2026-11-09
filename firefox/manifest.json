@@ -1,0 +1,68 @@
+{
+  "manifest_version": 2,
+  "name": "Sphere Dark",
+  "version": "1.0.0",
+  "description": "Thème sombre bleu-ardoise assorti au thème de bureau Sphere-Dark (XFCE, Blender, Krita, terminal).",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "sphere-dark@aflynn.xyz",
+      "strict_min_version": "115.0"
+    }
+  },
+  "theme": {
+    "images": {
+      "additional_backgrounds": [
+        "images/frame-light.png"
+      ]
+    },
+    "colors": {
+      "frame": "#0f1017",
+      "frame_inactive": "#0c0d13",
+      "tab_background_text": "#8b92a8",
+      "tab_text": "#eef1fa",
+      "tab_selected": "#191b24",
+      "tab_line": "#a9b4d0",
+      "tab_loading": "#a9b4d0",
+      "toolbar": "#191b24",
+      "toolbar_text": "#dfe5f5",
+      "icons": "#dfe5f5",
+      "icons_attention": "#b4694f",
+      "toolbar_top_separator": "#0f1017",
+      "toolbar_bottom_separator": "#2f313e",
+      "toolbar_vertical_separator": "#2f313e",
+      "toolbar_field": "#22242f",
+      "toolbar_field_text": "#dfe5f5",
+      "toolbar_field_border": "#2f313e",
+      "toolbar_field_focus": "#22242f",
+      "toolbar_field_text_focus": "#eef1fa",
+      "toolbar_field_border_focus": "#7d8ab3",
+      "toolbar_field_highlight": "#5a6a9a",
+      "toolbar_field_highlight_text": "#ffffff",
+      "button_background_hover": "rgba(169, 180, 208, 0.10)",
+      "button_background_active": "rgba(169, 180, 208, 0.18)",
+      "popup": "#191b24",
+      "popup_text": "#dfe5f5",
+      "popup_border": "#2f313e",
+      "popup_highlight": "#5a6a9a",
+      "popup_highlight_text": "#ffffff",
+      "sidebar": "#191b24",
+      "sidebar_text": "#dfe5f5",
+      "sidebar_border": "#2f313e",
+      "sidebar_highlight": "#5a6a9a",
+      "sidebar_highlight_text": "#ffffff",
+      "ntp_background": "#12141b",
+      "ntp_card_background": "#22242f",
+      "ntp_text": "#dfe5f5"
+    },
+    "properties": {
+      "additional_backgrounds_alignment": [
+        "left top"
+      ],
+      "additional_backgrounds_tiling": [
+        "repeat-x"
+      ],
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}
