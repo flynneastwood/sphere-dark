@@ -1,0 +1,104 @@
+/* ==UserStyle==
+@name           Sphere Dark - YouTube
+@namespace      sphere-dark
+@version        1.0.0
+@description    Slate-blue dark palette for YouTube, matching the Sphere-Dark desktop, terminal, Blender, Krita and Firefox themes.
+@author         Antoine
+@license        GPL-3.0-or-later
+==/UserStyle== */
+
+/*
+  Requires YouTube's dark appearance (Settings > Appearance > Dark, or "Use device theme"
+  with Firefox set to dark). The style overrides YouTube's own colour variables, so it keeps
+  working when the layout changes. Edit the --sd-* values below to retune the palette.
+*/
+
+@-moz-document domain("youtube.com") {
+  :root[dark],
+  :root[dark] [dark] {
+    /* --- Sphere-Dark palette ------------------------------------------------ */
+    --sd-deep:    #0f1017;  /* chrome: title bars, panel */
+    --sd-bg:      #191b24;  /* window background */
+    --sd-surface: #22242f;  /* fields, cards, menus */
+    --sd-raised:  #2f313e;  /* hover, borders */
+    --sd-text:    #dfe5f5;
+    --sd-text-2:  #99a0b5;  /* secondary text */
+    --sd-text-3:  #62687b;  /* disabled text */
+    --sd-accent:  #5a6a9a;  /* selection, active controls */
+    --sd-light:   #a9b4d0;  /* links, calls to action */
+    --sd-rust:    #b4694f;  /* the one warm accent: progress bar, badges */
+    --sd-hover:   rgba(169, 180, 208, 0.10);
+    --sd-hover-2: rgba(169, 180, 208, 0.18);
+
+    /* --- Newest YouTube variables -------------------------------------------- */
+    --yt-sys-color-baseline--base-background: var(--sd-bg);
+    --yt-sys-color-baseline--menu-background: var(--sd-surface);
+    --yt-sys-color-baseline--raised-background: var(--sd-surface);
+    --yt-sys-color-baseline--additive-background: var(--sd-hover);
+    --yt-sys-color-baseline--wordmark-text: var(--sd-text);
+    --yt-sys-color-baseline--text-primary: var(--sd-text);
+    --yt-sys-color-baseline--text-secondary: var(--sd-text-2);
+    --yt-sys-color-baseline--call-to-action: var(--sd-light);
+    --yt-sys-color-baseline--suggested-action: rgba(90, 106, 154, 0.30);
+    --yt-sys-color-baseline--outline: var(--sd-raised);
+    --yt-sys-color-baseline--outline-opaque: var(--sd-raised);
+    --yt-sys-color-baseline--overlay-background-solid: var(--sd-deep);
+    --yt-sys-color-baseline--overlay-text-primary: var(--sd-text);
+
+    /* --- Surfaces ------------------------------------------------------------- */
+    --yt-spec-base-background: var(--sd-bg);
+    --yt-spec-raised-background: var(--sd-surface);
+    --yt-spec-menu-background: var(--sd-surface);
+    --yt-spec-additive-background: var(--sd-hover);
+    --yt-spec-inverted-background: var(--sd-text);
+    --yt-spec-outline: var(--sd-raised);
+    --yt-spec-10-percent-layer: var(--sd-hover);
+    --yt-spec-badge-chip-background: var(--sd-hover);
+    --yt-spec-button-chip-background-hover: var(--sd-raised);
+    --yt-spec-touch-response: var(--sd-hover-2);
+    --yt-spec-themed-overlay-background: rgba(15, 16, 23, 0.80);
+
+    /* --- Text ----------------------------------------------------------------- */
+    --yt-spec-text-primary: var(--sd-text);
+    --yt-spec-text-secondary: var(--sd-text-2);
+    --yt-spec-text-disabled: var(--sd-text-3);
+    --yt-spec-text-primary-inverse: var(--sd-deep);
+    --yt-spec-white-1: var(--sd-text);
+    --yt-spec-white-2: var(--sd-text-2);
+    --yt-spec-white-3: #8b92a8;
+    --yt-spec-white-4: #7a8196;
+    --yt-spec-icon-active-other: var(--sd-text);
+
+    /* --- Blue-ish things: links, calls to action, selection ------------------- */
+    --yt-spec-call-to-action: var(--sd-light);
+    --yt-spec-suggested-action: rgba(90, 106, 154, 0.30);
+    --yt-spec-themed-blue: var(--sd-light);
+    --yt-spec-brand-link-text: var(--sd-light);
+    --yt-spec-light-blue: var(--sd-light);
+
+    /* --- Brand reds become the rust accent ------------------------------------ */
+    --yt-brand-youtube-red: var(--sd-rust);
+    --yt-brand-medium-red: var(--sd-rust);
+    --yt-brand-light-red: var(--sd-rust);
+    --yt-spec-red-indicator: var(--sd-rust);
+    --yt-spec-brand-icon-active: var(--sd-rust);
+    --yt-spec-static-brand-red: var(--sd-rust);
+    --yt-spec-brand-button-background: var(--sd-rust);
+  }
+
+  /* Page and scrollbars */
+  :root[dark] {
+    color-scheme: dark;
+    scrollbar-color: #2f313e #191b24;
+  }
+  :root[dark] ::selection {
+    background: #5a6a9a;
+    color: #ffffff;
+  }
+
+  /* The video player hard-codes its red, so it is overridden directly. */
+  :root[dark] .ytp-play-progress,
+  :root[dark] .ytp-swatch-background-color {
+    background: #b4694f !important;
+  }
+}

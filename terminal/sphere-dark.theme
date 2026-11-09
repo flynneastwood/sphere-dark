@@ -1,0 +1,14 @@
+[Scheme]
+Name=Sphere Dark
+ColorForeground=#dfe5f5
+ColorBackground=#191b24
+ColorCursor=#a9b4d0
+ColorCursorForeground=#191b24
+ColorCursorUseDefault=FALSE
+ColorBold=#eef1fa
+ColorBoldUseDefault=FALSE
+ColorSelection=#eef1fa
+ColorSelectionBackground=#5a6a9a
+ColorSelectionUseDefault=FALSE
+TabActivityColor=#b4694f
+ColorPalette=#2f313e;#d59087;#7eb488;#bfa060;#88a5da;#bb94c7;#5db5ba;#b8bfd3;#6f768c;#f1b2a9;#a2d2ab;#ddc084;#aac5f6;#d9b5e4;#88d3d7;#eef1fa
