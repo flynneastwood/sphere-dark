@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Sphere-Dark
+Comment=Thème sombre bleu-ardoise tiré d'un fond d'écran (base Mint-Y)
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Sphere-Dark
+MetacityTheme=Sphere-Dark
+IconTheme=Papirus-Dark
+ButtonLayout=:minimize,maximize,close
