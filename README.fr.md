@@ -2,7 +2,7 @@
 
 *[English version](README.md)*
 
-Un thème sombre bleu-ardoise et posé, tiré d'un seul fond d'écran éclairé en studio, et appliqué de façon cohérente au bureau et aux outils de création autour : Linux Mint XFCE, le terminal, l'écran de connexion, Blender, Krita, Unreal Engine, Ardour, Firefox et YouTube.
+Un thème sombre bleu-ardoise et posé, tiré d'un seul fond d'écran éclairé en studio, et appliqué de façon cohérente au bureau et aux outils de création autour : Linux Mint XFCE, le terminal, l'écran de connexion, Blender, Krita, Unreal Engine, Ardour, KeePassXC, Git Cola, Firefox et YouTube.
 
 ![Fond d'écran d'où vient la palette](docs/wallpaper-preview.jpg)
 
@@ -45,7 +45,8 @@ Le texte principal est à 13,6:1 sur le fond des fenêtres ; le blanc sur l'acce
 | [`krita/`](krita) | Krita 5.2 / 5.3 | `Sphere Dark.colors` |
 | [`unreal/`](unreal) | Unreal Engine 5 | `SphereDark.json` |
 | [`ardour/`](ardour) | Ardour 9 | `sphere_dark-ardour.colors` |
-| [`firefox/`](firefox) | Firefox | extension de thème |
+| [`qt/`](qt) | Applications Qt : KeePassXC, Git Cola et la plupart des autres (qt5ct / qt6ct) | `sphere-dark.conf` |
+| [`firefox/`](firefox) | Firefox | [Modules Firefox](https://addons.mozilla.org/firefox/addon/sphere-dark/) |
 | [`youtube/`](youtube) | YouTube (Stylus) | `sphere-dark-youtube.user.css` |
 
 `./build-all.sh` reconstruit tout dans `dist/` (voir [Construire](#construire)).
@@ -61,7 +62,19 @@ cp -r desktop/Sphere-Dark ~/.themes/
 
 Choisis **Sphere-Dark** dans *Paramètres → Apparence* (style) et *Paramètres → Gestionnaire de fenêtres* (bordures). Dans les préférences du panel, mets l'arrière-plan sur *Aucun (utiliser le style du système)*.
 
-Icônes : le thème est pensé pour **Papirus-Dark** avec des dossiers bleu-gris (`papirus-folders -C bluegrey --theme Papirus-Dark`). Autres packs qui vont bien : Colloid (variante Nord), Nordzy (sombre), Kora (pgrey). Voir la [planche comparative](docs/screenshots/icon-packs.png).
+### Icônes (Nordzy)
+
+Le thème est pensé pour les icônes **Nordzy** d'alvatip, dont la palette Nord bleu-ardoise s'accorde à Sphere Dark. Elles ne sont pas incluses ici ; installe-les depuis [le dépôt de Nordzy](https://github.com/alvatip/Nordzy-icon) :
+
+```sh
+git clone https://github.com/alvatip/Nordzy-icon.git
+cd Nordzy-icon
+./install.sh -c dark
+```
+
+Cela installe **Nordzy-dark** dans `~/.local/share/icons`. Choisis-le dans *Paramètres → Apparence → Icônes*. Pour l'avoir aussi à l'écran de connexion, lance ensuite `sudo login/install-login-assets.sh` (voir [Écran de connexion](#écran-de-connexion)).
+
+Autres packs qui vont bien : Papirus-Dark avec des dossiers bleu-gris (`papirus-folders -C bluegrey --theme Papirus-Dark`), Colloid (variante Nord), Kora (pgrey). Voir la [planche comparative](docs/screenshots/icon-packs.png).
 
 ### Terminal
 
@@ -81,6 +94,19 @@ sudo login/install-login-assets.sh 'Papirus*' # autre thème d'icônes
 ```
 
 Ouvre ensuite *Fenêtre de connexion* et choisis le thème, les icônes et le fond. Relance le script après chaque modification du thème.
+
+### Applications Qt (KeePassXC, Git Cola)
+
+KeePassXC et Git Cola suivent la palette Qt du système. Installe qt5ct et qt6ct, puis lance le script (sans sudo) :
+
+```sh
+sudo apt install qt5ct qt6ct
+qt/install-qt.sh
+```
+
+Il installe la palette pour Qt 5 et Qt 6, règle le style Fusion et ton thème d'icônes actuel, ajoute `QT_QPA_PLATFORMTHEME=qt5ct` à `~/.profile` (qt6ct répond aussi à `qt5ct`), et règle les couleurs du diff de Git Cola avec `git config --global cola.*`. Déconnecte-toi puis reconnecte-toi, puis choisis *Paramètres → Interface → Thème → Classique* dans KeePassXC. Garde Git Cola sur son thème *Default* : un thème `.qss` personnalisé fait passer Git Cola à une palette claire sur un système sombre.
+
+![Aperçu des applications Qt](docs/screenshots/qt-apps.png)
 
 ### Blender 5.2+
 
@@ -110,9 +136,9 @@ Puis *Preferences → Appearance → Colors → Color Theme → Sphere Dark*.
 
 ### Firefox
 
-La version standard de Firefox n'installe que des extensions signées.
-- **Pour essayer :** `about:debugging` → *Ce Firefox* → *Charger un module complémentaire temporaire…* → choisis `firefox/manifest.json` (retiré au redémarrage).
-- **Pour le garder :** envoie `sphere-dark-firefox.zip` sur addons.mozilla.org/developers avec la distribution *Sur votre propre site* ; Mozilla le signe et tu installes le `.xpi` signé.
+Sphere Dark est publié sur les modules Firefox : **[installe-le depuis addons.mozilla.org](https://addons.mozilla.org/firefox/addon/sphere-dark/)**. Il se met à jour automatiquement, comme tout autre thème.
+
+Pour essayer des modifications de `firefox/manifest.json` avant de les publier, charge-le depuis `about:debugging` → *Ce Firefox* → *Charger un module complémentaire temporaire…* (retiré au redémarrage).
 
 Astuce : coche *Barre de titre* dans *Personnaliser la barre d'outils* pour que Firefox utilise la barre de titre xfwm4 du thème.
 
@@ -137,9 +163,10 @@ Chaque `build.py` part du thème d'origine de son application (dans `*/source/`,
 | Bureau (GTK 3) | CSS compilé et rendu avec de vrais widgets GTK 3 ; utilisé au quotidien par l'auteur |
 | Écran de connexion | Script testé sur une fausse racine ; widgets rendus avec GTK 3 |
 | Blender | Chargé dans Blender 5.2.3 (bpy) avec le chargeur de préréglages de Blender ; extension validée |
-| Firefox | Validé avec `web-ext lint` |
+| Firefox | Validé avec `web-ext lint` ; signé et publié sur addons.mozilla.org |
 | Unreal Engine | Les clés correspondent aux 61 entrées `EStyleColor` (doc UE 5.8) |
 | Ardour | Palette seulement ; les 429 alias et 41 modificateurs sont identiques à l'original |
+| Applications Qt | Palette rendue avec Qt 6 en style Fusion ; script testé avec un faux dossier personnel |
 | Krita, terminal, YouTube | Format vérifié ; aperçus dessinés à partir de la palette |
 
 Les captures des vraies applications sont les bienvenues.
@@ -149,6 +176,7 @@ Les captures des vraies applications sont les bienvenues.
 - Thème de bureau construit sur **Mint-Y** de Linux Mint ([linuxmint/mint-themes](https://github.com/linuxmint/mint-themes), GPL-3.0+).
 - Thème Blender dérivé du thème par défaut de Blender ; thème Krita de *Krita darker* ; thème Ardour du thème *dark* d'Ardour.
 - Noms de variables YouTube repérés dans le style utilisateur Catppuccin.
+- Icônes recommandées : [Nordzy](https://github.com/alvatip/Nordzy-icon) d'alvatip (GPL-3.0), à installer à part.
 - Fond d'écran de l'auteur ; seul un aperçu est inclus.
 
 ## Licence
