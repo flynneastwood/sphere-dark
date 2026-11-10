@@ -25,6 +25,9 @@ python3 unreal/build.py unreal/SphereDark.json
 python3 ardour/build.py ardour/source/dark-ardour.colors ardour/sphere_dark-ardour.colors
 cp "krita/Sphere Dark.colors" unreal/SphereDark.json ardour/sphere_dark-ardour.colors "$DIST/"
 
+python3 qt/build.py qt/sphere-dark.conf
+tar czf "$DIST/sphere-dark-qt.tar.gz" -C qt sphere-dark.conf install-qt.sh
+
 # Firefox (unsigned; see firefox section of the README to sign it)
 (cd firefox && zip -q -r "../$DIST/sphere-dark-firefox.zip" manifest.json images)
 
