@@ -1,0 +1,56 @@
+/* ------------------------------------------------------------------------- *
+ * Sphere Dark - variant (style) of OBS Studio's Yami theme.
+ *
+ * Only colors change: Yami's grey ramp becomes the Sphere Dark slate greys,
+ * its blues become the Sphere Dark accent. Layout, sizes and the mixer meter
+ * colors stay Yami's, so the theme keeps working across OBS updates.
+ *
+ * Install in the OBS themes folder, then Settings > Appearance:
+ * Theme "Yami", Style "Sphere Dark".
+ * ------------------------------------------------------------------------- */
+
+@OBSThemeMeta {
+    name: 'Sphere Dark';
+    id: 'com.sphere-dark.Yami.SphereDark';
+    extends: 'com.obsproject.Yami';
+    author: 'Antoine';
+    dark: 'true';
+}
+
+@OBSThemeVars {
+    /* Grey ramp (1 = lightest, 8 = darkest) */
+    --grey1: #62687b;   /* input borders */
+    --grey2: #4a4f63;
+    --grey3: #3b3f4e;   /* button hover */
+    --grey4: #2f313e;   /* inputs, buttons, borders */
+    --grey5: #262835;
+    --grey6: #22242f;   /* lists and dock content = surfaces */
+    --grey7: #191b24;   /* window background */
+    --grey8: #12141b;   /* around the preview canvas */
+
+    /* Blue family = Sphere Dark accent (used for selection, focus, links) */
+    --blue1: #a9b4d0;
+    --blue2: #7d8ab3;
+    --blue3: #5a6a9a;
+    --blue4: #3d4a6e;
+    --blue5: #2c3450;
+    --blue6: #1f2538;
+
+    --primary: #5a6a9a;
+    --primary_light: #6b7cae;
+    --primary_lighter: #a9b4d0;
+    --primary_dark: #3d4a6e;
+    --primary_darker: #2c3450;
+
+    /* Text */
+    --text: #dfe5f5;
+    --text_light: #eef1fa;
+    --text_muted: #8b92a8;
+
+    /* Links in the light blue of the sphere */
+    --palette_link: #a9b4d0;
+    --palette_linkVisited: #bb94c7;
+
+    /* Separators and borders a step softer than Yami's */
+    --border_color: #2f313e;
+}
