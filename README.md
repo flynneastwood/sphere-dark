@@ -2,7 +2,7 @@
 
 *[Version française](README.fr.md)*
 
-A calm slate-blue dark theme, derived from a single studio-lit wallpaper and applied consistently across the desktop and the creative tools around it: Linux Mint XFCE, the terminal, the login screen, Blender, Krita, Unreal Engine, Ardour, KeePassXC, Git Cola, Firefox and YouTube.
+A calm slate-blue dark theme, derived from a single studio-lit wallpaper and applied consistently across the desktop and the creative tools around it: Linux Mint XFCE, the terminal, the login screen, Blender, Krita, Unreal Engine, Ardour, OBS Studio, KeePassXC, Git Cola, Firefox and YouTube.
 
 ![Wallpaper the palette was taken from](docs/wallpaper-preview.jpg)
 
@@ -46,7 +46,9 @@ Primary text is 13.6:1 on the window background; white on the accent is 5.3:1.
 | [`unreal/`](unreal) | Unreal Engine 5 | `SphereDark.json` |
 | [`ardour/`](ardour) | Ardour 9 | `sphere_dark-ardour.colors` |
 | [`qt/`](qt) | Qt apps: KeePassXC, Git Cola and most others (qt5ct / qt6ct) | `sphere-dark.conf` |
+| [`obs-studio/`](obs-studio) | OBS Studio 30+ (variant of the Yami theme) | `Yami_SphereDark.ovt` |
 | [`firefox/`](firefox) | Firefox | [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/sphere-dark/) |
+| [`web/`](web) | Every site, with Dark Reader (Stylus) | `sphere-dark-web.user.css` |
 | [`youtube/`](youtube) | YouTube (Stylus) | `sphere-dark-youtube.user.css` |
 
 Run `./build-all.sh` to rebuild everything into `dist/` (see [Building](#building)).
@@ -108,6 +110,19 @@ It installs the palette for Qt 5 and Qt 6, sets the Fusion style and your curren
 
 ![Qt apps preview](docs/screenshots/qt-apps.png)
 
+### OBS Studio 30+
+
+A variant (*style*) of OBS's own Yami theme: only the colors change, so it keeps working across OBS updates.
+
+```sh
+mkdir -p ~/.config/obs-studio/themes
+cp obs-studio/Yami_SphereDark.ovt ~/.config/obs-studio/themes/
+```
+
+For the Flatpak version, use `~/.var/app/com.obsproject.Studio/config/obs-studio/themes/`. Restart OBS, then *Settings → Appearance*: Theme **Yami**, Style **Sphere Dark**. Mixer meter colors (green / yellow / red) are kept.
+
+![OBS preview](docs/screenshots/obs.png)
+
 ### Blender 5.2+
 
 Build or download `sphere_dark-blender-1.0.0.zip`, then *Edit → Preferences → Get Extensions → ⌄ → Install from Disk…* and pick **Sphere Dark** under *Themes*. The 3D viewport uses a radial studio gradient; switch *Background Type* to *Single Color* if you prefer a flat one.
@@ -144,7 +159,12 @@ Tip: enable *Title Bar* in *Customize Toolbar* so Firefox uses the themed xfwm4 
 
 ### YouTube
 
-Install the **Stylus** extension, create a new style, paste `youtube/sphere-dark-youtube.user.css`, and set YouTube to its dark appearance. For other sites, Dark Reader with background `#191b24`, text `#dfe5f5` and selection `#5a6a9a` gets close.
+Install the **Stylus** extension, create a new style, paste `youtube/sphere-dark-youtube.user.css`, and set YouTube to its dark appearance. ### Every other site (Dark Reader + Stylus)
+
+1. In **Dark Reader** (Dynamic mode), click *See all options* and set: Background `#191b24`, Text `#dfe5f5`, Selection `#5a6a9a`, Scrollbar `#2f313e`. Dark Reader then recolors every page from that slate background.
+2. In **Stylus**, add `web/sphere-dark-web.user.css`. It applies to every site and finishes what Dark Reader leaves alone: fallback colors, dark native widgets (`color-scheme`), scrollbars, light-blue caret and focus ring, muted `<mark>` highlights, and the accent on checkboxes, radios, sliders and selections.
+
+Disable Dark Reader on YouTube so it does not stack with the YouTube style.
 
 ## Building
 
@@ -166,8 +186,9 @@ Each `build.py` takes the original theme of its application (in `*/source/`, or 
 | Firefox | Validated with `web-ext lint`; signed and published on addons.mozilla.org |
 | Unreal Engine | Keys match the 61 `EStyleColor` entries (UE 5.8 docs) |
 | Ardour | Palette only; all 429 aliases and 41 modifiers identical to the original |
+| OBS | All 25 variables exist in Yami; stylesheet composed like OBS does and rendered with Qt 6 on a mock window |
 | Qt apps | Palette rendered with Qt 6 Fusion; install script tested with a mock home folder |
-| Krita, terminal, YouTube | Format checked; previews drawn from the palette |
+| Krita, terminal, YouTube, web | Format checked; previews drawn from the palette |
 
 Screenshots of the real applications are welcome.
 
@@ -175,7 +196,7 @@ Screenshots of the real applications are welcome.
 
 - Desktop theme built on **Mint-Y** by Linux Mint ([linuxmint/mint-themes](https://github.com/linuxmint/mint-themes), GPL-3.0+).
 - Blender theme derived from Blender's default theme; Krita theme from *Krita darker*; Ardour theme from Ardour's *dark* theme.
-- YouTube variable names researched from the Catppuccin userstyle.
+- YouTube variable names researched from the Catppuccin userstyle (MIT).
 - Recommended icons: [Nordzy](https://github.com/alvatip/Nordzy-icon) by alvatip (GPL-3.0), installed separately.
 - Wallpaper by the author; only a preview is included.
 

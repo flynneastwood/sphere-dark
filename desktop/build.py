@@ -569,7 +569,7 @@ def main():
             "[Desktop Entry]\nType=X-GNOME-Metatheme\nName=%s\n"
             "Comment=Thème sombre bleu-ardoise tiré d'un fond d'écran (base Mint-Y)\n"
             "Encoding=UTF-8\n\n[X-GNOME-Metatheme]\nGtkTheme=%s\nMetacityTheme=%s\n"
-            "IconTheme=Papirus-Dark\nButtonLayout=:minimize,maximize,close\n" % (NAME, NAME, NAME)
+            "IconTheme=Nordzy-dark\nButtonLayout=:minimize,maximize,close\n" % (NAME, NAME, NAME)
         )
     print("Thème généré :", theme)
 

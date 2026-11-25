@@ -7,5 +7,5 @@ Encoding=UTF-8
 [X-GNOME-Metatheme]
 GtkTheme=Sphere-Dark
 MetacityTheme=Sphere-Dark
-IconTheme=Papirus-Dark
+IconTheme=Nordzy-dark
 ButtonLayout=:minimize,maximize,close

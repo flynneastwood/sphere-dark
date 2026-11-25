@@ -1,0 +1,62 @@
+/* ==UserStyle==
+@name           Sphere Dark - Web (Dark Reader companion)
+@namespace      sphere-dark
+@version        1.0.0
+@description    Finishes the Sphere Dark look on every site darkened by Dark Reader: neutral colors, selection, scrollbars, focus, caret and form controls.
+@author         Antoine
+@license        GPL-3.0-or-later
+==/UserStyle== */
+
+/*
+  Use with Dark Reader in Dynamic mode, with its colors set to the Sphere Dark palette
+  (Dark Reader > See all options > Background #191b24, Text #dfe5f5, Selection #5a6a9a,
+  Scrollbar #2f313e). Dark Reader recolors each page from that background; this style
+  adds what it leaves alone.
+
+  No @-moz-document block: Stylus applies this style to every site.
+  Everything is scoped to pages Dark Reader has darkened, except the two rules at the
+  end, which are safe on light pages too.
+*/
+
+/* ---------------------------------------------------------------- Dark Reader pages */
+html[data-darkreader-scheme="dark"] {
+  /* Fallback colors Dark Reader uses for elements the site left uncolored */
+  --darkreader-neutral-background: #191b24 !important;
+  --darkreader-neutral-text: #dfe5f5 !important;
+  --darkreader-selection-background: #5a6a9a !important;
+  --darkreader-selection-text: #ffffff !important;
+
+  color-scheme: dark;                         /* native widgets, date pickers, dropdown lists */
+  scrollbar-color: #2f313e #191b24 !important;
+}
+
+/* Text cursor and focus ring: the light blue from the inside of the sphere */
+html[data-darkreader-scheme="dark"] :is(input, textarea, [contenteditable="true"], [contenteditable=""]) {
+  caret-color: #a9b4d0 !important;
+}
+html[data-darkreader-scheme="dark"] :focus-visible {
+  outline-color: #a9b4d0 !important;
+}
+
+/* Search-in-page highlights and <mark> */
+html[data-darkreader-scheme="dark"] mark {
+  background-color: rgba(221, 192, 132, 0.30) !important;   /* terminal yellow, muted */
+  color: #eef1fa !important;
+}
+
+/* Horizontal rules and fieldsets often stay too bright */
+html[data-darkreader-scheme="dark"] hr {
+  border-color: #2f313e !important;
+}
+
+/* ---------------------------------------------------------------- every page */
+/* Checkboxes, radio buttons, sliders and progress bars take the theme accent */
+:root {
+  accent-color: #5a6a9a;
+}
+
+/* Text selection */
+::selection {
+  background-color: #5a6a9a !important;
+  color: #ffffff !important;
+}

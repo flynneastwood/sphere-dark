@@ -2,8 +2,8 @@
 # Rend Sphere-Dark et tes icônes (Nordzy par défaut) visibles pour l'écran de connexion.
 #
 # Usage :
-#   sudo ./installer-pour-connexion.sh                 # thème Sphere-Dark + icônes Nordzy*
-#   sudo ./installer-pour-connexion.sh 'Papirus*'      # autre motif pour les icônes
+#   sudo ./install-login-assets.sh                 # thème Sphere-Dark + icônes Nordzy*
+#   sudo ./install-login-assets.sh 'Papirus*'      # autre motif pour les icônes
 #
 # L'outil « Fenêtre de connexion » et l'écran de connexion ne voient que les dossiers système :
 #   thèmes  -> /usr/share/themes  (le thème doit avoir gtk-2.0 et gtk-3.0)

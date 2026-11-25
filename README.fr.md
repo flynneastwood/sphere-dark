@@ -2,7 +2,7 @@
 
 *[English version](README.md)*
 
-Un thème sombre bleu-ardoise et posé, tiré d'un seul fond d'écran éclairé en studio, et appliqué de façon cohérente au bureau et aux outils de création autour : Linux Mint XFCE, le terminal, l'écran de connexion, Blender, Krita, Unreal Engine, Ardour, KeePassXC, Git Cola, Firefox et YouTube.
+Un thème sombre bleu-ardoise et posé, tiré d'un seul fond d'écran éclairé en studio, et appliqué de façon cohérente au bureau et aux outils de création autour : Linux Mint XFCE, le terminal, l'écran de connexion, Blender, Krita, Unreal Engine, Ardour, OBS Studio, KeePassXC, Git Cola, Firefox et YouTube.
 
 ![Fond d'écran d'où vient la palette](docs/wallpaper-preview.jpg)
 
@@ -46,7 +46,9 @@ Le texte principal est à 13,6:1 sur le fond des fenêtres ; le blanc sur l'acce
 | [`unreal/`](unreal) | Unreal Engine 5 | `SphereDark.json` |
 | [`ardour/`](ardour) | Ardour 9 | `sphere_dark-ardour.colors` |
 | [`qt/`](qt) | Applications Qt : KeePassXC, Git Cola et la plupart des autres (qt5ct / qt6ct) | `sphere-dark.conf` |
+| [`obs-studio/`](obs-studio) | OBS Studio 30+ (variante du thème Yami) | `Yami_SphereDark.ovt` |
 | [`firefox/`](firefox) | Firefox | [Modules Firefox](https://addons.mozilla.org/firefox/addon/sphere-dark/) |
+| [`web/`](web) | Tous les sites, avec Dark Reader (Stylus) | `sphere-dark-web.user.css` |
 | [`youtube/`](youtube) | YouTube (Stylus) | `sphere-dark-youtube.user.css` |
 
 `./build-all.sh` reconstruit tout dans `dist/` (voir [Construire](#construire)).
@@ -108,6 +110,19 @@ Il installe la palette pour Qt 5 et Qt 6, règle le style Fusion et ton thème d
 
 ![Aperçu des applications Qt](docs/screenshots/qt-apps.png)
 
+### OBS Studio 30+
+
+Une variante (*style*) du thème Yami d'OBS : seules les couleurs changent, donc elle continue de fonctionner après les mises à jour d'OBS.
+
+```sh
+mkdir -p ~/.config/obs-studio/themes
+cp obs-studio/Yami_SphereDark.ovt ~/.config/obs-studio/themes/
+```
+
+Pour la version Flatpak, utilise `~/.var/app/com.obsproject.Studio/config/obs-studio/themes/`. Redémarre OBS, puis *Paramètres → Apparence* : Thème **Yami**, Style **Sphere Dark**. Les couleurs des VU-mètres du mixeur (vert / jaune / rouge) sont conservées.
+
+![Aperçu d'OBS](docs/screenshots/obs.png)
+
 ### Blender 5.2+
 
 Construis ou télécharge `sphere_dark-blender-1.0.0.zip`, puis *Edit → Preferences → Get Extensions → ⌄ → Install from Disk…*, et choisis **Sphere Dark** dans *Themes*. Le viewport 3D a un dégradé radial de studio ; passe *Background Type* à *Single Color* pour un fond uni.
@@ -144,7 +159,12 @@ Astuce : coche *Barre de titre* dans *Personnaliser la barre d'outils* pour que 
 
 ### YouTube
 
-Installe l'extension **Stylus**, crée un nouveau style, colle `youtube/sphere-dark-youtube.user.css`, et mets YouTube en apparence sombre. Pour les autres sites, Dark Reader avec un fond `#191b24`, un texte `#dfe5f5` et une sélection `#5a6a9a` s'en approche.
+Installe l'extension **Stylus**, crée un nouveau style, colle `youtube/sphere-dark-youtube.user.css`, et mets YouTube en apparence sombre. ### Tous les autres sites (Dark Reader + Stylus)
+
+1. Dans **Dark Reader** (mode dynamique), clique sur *See all options* et règle : Background `#191b24`, Text `#dfe5f5`, Selection `#5a6a9a`, Scrollbar `#2f313e`. Dark Reader recolore alors chaque page à partir de ce fond bleu-ardoise.
+2. Dans **Stylus**, ajoute `web/sphere-dark-web.user.css`. Il s'applique à tous les sites et complète ce que Dark Reader laisse de côté : couleurs de repli, widgets natifs sombres (`color-scheme`), barres de défilement, curseur de texte et contour de focus bleu clair, surlignage `<mark>` atténué, et l'accent sur les cases à cocher, boutons radio, curseurs et sélections.
+
+Désactive Dark Reader sur YouTube pour qu'il ne se superpose pas au style YouTube.
 
 ## Construire
 
@@ -166,8 +186,9 @@ Chaque `build.py` part du thème d'origine de son application (dans `*/source/`,
 | Firefox | Validé avec `web-ext lint` ; signé et publié sur addons.mozilla.org |
 | Unreal Engine | Les clés correspondent aux 61 entrées `EStyleColor` (doc UE 5.8) |
 | Ardour | Palette seulement ; les 429 alias et 41 modificateurs sont identiques à l'original |
+| OBS | Les 25 variables existent dans Yami ; feuille composée comme le fait OBS et rendue avec Qt 6 sur une fenêtre d'imitation |
 | Applications Qt | Palette rendue avec Qt 6 en style Fusion ; script testé avec un faux dossier personnel |
-| Krita, terminal, YouTube | Format vérifié ; aperçus dessinés à partir de la palette |
+| Krita, terminal, YouTube, web | Format vérifié ; aperçus dessinés à partir de la palette |
 
 Les captures des vraies applications sont les bienvenues.
 
@@ -175,7 +196,7 @@ Les captures des vraies applications sont les bienvenues.
 
 - Thème de bureau construit sur **Mint-Y** de Linux Mint ([linuxmint/mint-themes](https://github.com/linuxmint/mint-themes), GPL-3.0+).
 - Thème Blender dérivé du thème par défaut de Blender ; thème Krita de *Krita darker* ; thème Ardour du thème *dark* d'Ardour.
-- Noms de variables YouTube repérés dans le style utilisateur Catppuccin.
+- Noms de variables YouTube repérés dans le style utilisateur Catppuccin (MIT).
 - Icônes recommandées : [Nordzy](https://github.com/alvatip/Nordzy-icon) d'alvatip (GPL-3.0), à installer à part.
 - Fond d'écran de l'auteur ; seul un aperçu est inclus.
 

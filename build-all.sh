@@ -31,8 +31,8 @@ tar czf "$DIST/sphere-dark-qt.tar.gz" -C qt sphere-dark.conf install-qt.sh
 # Firefox (unsigned; see firefox section of the README to sign it)
 (cd firefox && zip -q -r "../$DIST/sphere-dark-firefox.zip" manifest.json images)
 
-# Terminal, YouTube, login screen: plain files
+# Terminal, OBS, YouTube, web, login screen: plain files
 tar czf "$DIST/sphere-dark-terminal.tar.gz" -C terminal sphere-dark.theme install.sh
-cp youtube/sphere-dark-youtube.user.css login/install-login-assets.sh "$DIST/"
+cp obs-studio/Yami_SphereDark.ovt youtube/sphere-dark-youtube.user.css web/sphere-dark-web.user.css login/install-login-assets.sh "$DIST/"
 
 echo; echo "Done. Installable files:"; ls -1 "$DIST"
